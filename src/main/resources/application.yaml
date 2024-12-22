@@ -1,7 +1,22 @@
-spring.datasourse.url=jdbc:h2:mem:personsdb
-spring.datasourse.driver-class-mane=org.h2.Driver
-spring.datasourse.username=sa
-spring.datasourse.password=
-spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mydb
+    username: mydbuser
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
 
-spring.h2.console.enabled=true
+managment:
+  server:
+    port: 9000
+  endpoints:
+    web:
+      exposure:
+        include: metrics,prometheus
+
+
+
+
+
