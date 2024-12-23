@@ -3,6 +3,7 @@ package com.example.seminar10.controller;
 import com.example.seminar10.model.Gender;
 import com.example.seminar10.model.Married;
 import com.example.seminar10.model.Person;
+import com.example.seminar10.service.FileGateWay;
 import com.example.seminar10.service.PersonService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class PesronController {
     private final PersonService service;
+    private  final FileGateWay fileGateWay;
 
     @GetMapping
     public List<Person> findAll(){
@@ -46,6 +48,7 @@ public class PesronController {
 
     @PostMapping("/add")
     public Person addPerson(@RequestBody Person person){
+        fileGateWay.writeToFile(person.getName() + ".txt", person.toString());
         return new ResponseEntity<>(service.save(person), HttpStatus.OK).getBody();
     }
 

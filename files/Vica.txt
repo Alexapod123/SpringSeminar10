@@ -1,0 +1,1 @@
+Person(id=null, name=Vica, birthday=1997-11-12, gender=FEMALE, married=NOT_MARRIED)
